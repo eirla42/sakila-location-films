@@ -18,3 +18,7 @@ Un compte rendu sera attendu (liste non exhaustive) : installation, utilisation,
 * Claude Chambéry
 * Mathieu Maisonnette
 * Maxime Richaudeau
+
+## Sources
+
+https://dev.mysql.com/doc/index-other.html
