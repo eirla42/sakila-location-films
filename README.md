@@ -14,6 +14,13 @@ Le contenu de vos fichiers sources html/php/css/js/... sera aussi consulté. Les
 
 Un compte rendu sera attendu (liste non exhaustive) : installation, utilisation, captures d'écran (en cas de soucis lors de la correction), défis relevés et difficultés rencontrées, conclusions techniques et impressions personnelles.
 
+## Dev init
+* Installer wamp
+* Mettre le projet dans le répertoire www/
+* Importer les schémas puis les données dans la base de données :
+  * Schémas : src/assets/sakila-db/sakila-schema.sql
+  * Données : src/assets/sakila-db/sakila-data.sql
+
 ## Auteurs
 * Claude Chambéry
 * Mathieu Maisonnette
