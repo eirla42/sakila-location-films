@@ -21,6 +21,9 @@ Un compte rendu sera attendu (liste non exhaustive) : installation, utilisation,
   * Schémas : src/assets/sakila-db/sakila-schema.sql
   * Données : src/assets/sakila-db/sakila-data.sql
 
+
+* Lancer dans le navigateur : http://localhost/sakila-location-films/src
+
 ## Auteurs
 * Claude Chambéry
 * Mathieu Maisonnette
