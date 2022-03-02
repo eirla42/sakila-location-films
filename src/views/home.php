@@ -7,11 +7,11 @@ require __DIR__ . '/../views-models/home.php';
 
     <table class="table table-bordered table-condensed">
         <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Année</th>
-        </tr>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Année</th>
+            </tr>
         </thead>
         <tbody>
             <?php renderFilms(); ?>
