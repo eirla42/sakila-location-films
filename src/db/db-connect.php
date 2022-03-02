@@ -1,5 +1,5 @@
 <?php
-    require_once '../config/config.php';
+    require_once __DIR__.'/../config/db-config.php';
 
     function connectDb(){
         $host = DB_HOST;
@@ -15,3 +15,4 @@
             exit('Erreur : '.$e->getMessage());
         }
 }
+    $connection = connectDb();
