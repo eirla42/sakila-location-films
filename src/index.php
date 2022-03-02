@@ -1,6 +1,8 @@
 <?php
 require "./config/config.php";
 
+require_once './db/db-connect.php';
+
 // Grabs the URI and breaks it apart in case we have querystring stuff
 $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
 
