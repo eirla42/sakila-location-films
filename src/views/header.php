@@ -1,3 +1,7 @@
+<?php
+    require __DIR__."/../config/config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +15,8 @@
 
     <nav>
         <ul>
-            <li><a href="<?= URL_ROOT; ?>"> Home </a></li>
-            <li><a href="<?= URL_ROOT; ?>about"> About </a></li>
+            <li><a href="<?= URL_ROOT; ?>"> Accueil </a></li>
+            <li><a href="<?= URL_ROOT; ?>views/admin/film/list-film.php"> Liste des films </a></li>
         </ul>
     </nav>
 
