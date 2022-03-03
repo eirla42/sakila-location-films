@@ -345,7 +345,7 @@ CREATE TABLE store (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- View structure for view `customer_list`
+-- View structure for views `customer_list`
 --
 
 CREATE VIEW customer_list
@@ -356,7 +356,7 @@ FROM customer AS cu JOIN address AS a ON cu.address_id = a.address_id JOIN city 
 	JOIN country ON city.country_id = country.country_id;
 
 --
--- View structure for view `film_list`
+-- View structure for views `film_list`
 --
 
 CREATE VIEW film_list
@@ -369,7 +369,7 @@ FROM category LEFT JOIN film_category ON category.category_id = film_category.ca
 GROUP BY film.film_id, category.name;
 
 --
--- View structure for view `nicer_but_slower_film_list`
+-- View structure for views `nicer_but_slower_film_list`
 --
 
 CREATE VIEW nicer_but_slower_film_list
@@ -384,7 +384,7 @@ FROM category LEFT JOIN film_category ON category.category_id = film_category.ca
 GROUP BY film.film_id, category.name;
 
 --
--- View structure for view `staff_list`
+-- View structure for views `staff_list`
 --
 
 CREATE VIEW staff_list
@@ -395,7 +395,7 @@ FROM staff AS s JOIN address AS a ON s.address_id = a.address_id JOIN city ON a.
 	JOIN country ON city.country_id = country.country_id;
 
 --
--- View structure for view `sales_by_store`
+-- View structure for views `sales_by_store`
 --
 
 CREATE VIEW sales_by_store
@@ -416,7 +416,7 @@ GROUP BY s.store_id
 ORDER BY cy.country, c.city;
 
 --
--- View structure for view `sales_by_film_category`
+-- View structure for views `sales_by_film_category`
 --
 -- Note that total sales will add up to >100% because
 -- some titles belong to more than 1 category
@@ -437,7 +437,7 @@ GROUP BY c.name
 ORDER BY total_sales DESC;
 
 --
--- View structure for view `actor_info`
+-- View structure for views `actor_info`
 --
 
 CREATE DEFINER=CURRENT_USER SQL SECURITY INVOKER VIEW actor_info
