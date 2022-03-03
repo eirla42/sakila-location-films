@@ -260,7 +260,7 @@ class Film
      * Select all films
      * @return array
      */
-    public static function selectAll(): array {
+    public static function selectAll(){
         $films = array();
         $sql = "SELECT * FROM film";
 
