@@ -280,6 +280,37 @@ class Film
     }
 
     /**
+     * Select all actors
+     * @return array
+     */
+    public static function selectFilmFromActor($actor_lname, $actor_fname){
+        $films = array();
+        $bdd = connectDb();
+        $sql_actor_id = "SELECT actor_id FROM actor WHERE last_name = '$actor_lname' and first_name = '$actor_fname'";
+        $query_actor_id = $bdd->prepare($sql_actor_id);
+        $query_actor_id->execute();
+        $actor_id = $query_actor_id->fetch();
+        //print_r($actor_id);
+        $sql = "SELECT * 
+                FROM film 
+                WHERE film_id IN 
+                      (SELECT film_id from film join film_actor using(film_id) where actor_id = $actor_id[0])";
+        $query = $bdd->prepare($sql);
+        $query->execute();
+        while ($data = $query->fetch()) {
+            $films[$data['film_id']] = new Film(
+                $data['film_id'], $data['title'], $data['description'], $data['release_year'], $data['language_id'],
+                $data['original_language_id'], $data['rental_duration'], $data['rental_rate'], $data['length'],
+                $data['replacement_cost'], $data['rating'], $data['special_features'], $data['last_update']
+            );
+        }
+        $query->closeCursor();
+        //print_r(sizeof($films));
+        return $films;
+    }
+
+
+    /**
      * INSERT a film
      */
     public function add()

@@ -1,20 +1,20 @@
 <?php
 require_once 'header.php';
-require __DIR__ . '/../views-models/actors_from_film.php';
+require __DIR__ . '/../views-models/films_from_actor.php';
 require_once '../db/db-connect.php';
 
 ?>
-<h1>Liste des acteurs par Film</h1>
+<h1>Liste des films par Acteur</h1>
 
 <table class="table table-bordered table-condensed">
     <thead>
     <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
+        <th>Titre</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tbody>
-    <?php renderActorsFromFilm('AGENT TRUMAN'); ?>
+    <?php renderFilmsFromActor('PALTROW', 'KIRSTEN'); ?>
     </tbody>
 </table>
 
