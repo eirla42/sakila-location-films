@@ -13,6 +13,7 @@
         <ul>
             <li><a href="<?= URL_ROOT; ?>"> Home </a></li>
             <li><a href="<?= URL_ROOT; ?>about"> About </a></li>
+            <li><a href="<?= ACTOR_LINK; ?>"> Actor page </a></li>
         </ul>
     </nav>
 
