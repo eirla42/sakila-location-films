@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require __DIR__ . '/../views-models/actors.php';
+require __DIR__ . '/../views-models/actors_from_film.php';
 require_once '../db/db-connect.php';
 
 ?>
@@ -14,7 +14,7 @@ require_once '../db/db-connect.php';
     </tr>
     </thead>
     <tbody>
-    <?php renderActors(); ?>
+    <?php renderActorsFromFilm('AGENT TRUMAN'); ?>
     </tbody>
 </table>
 
