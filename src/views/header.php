@@ -17,7 +17,9 @@
 
     <nav>
         <ul>
+            <li><a href="<?= URL_ROOT; ?>"> Home </a></li>
             <li><a href="<?= URL_ROOT; ?>"> Accueil </a></li>
+            <li><a href="<?= ACTOR_LINK; ?>"> Actor page </a></li>
             <li><a href="<?= URL_ROOT; ?>views/admin/film/list-film.php"> Admin - Liste des films </a></li>
         </ul>
     </nav>
