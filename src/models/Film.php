@@ -278,4 +278,25 @@ class Film
 
         return $films;
     }
+
+    /**
+     * INSERT a film
+     */
+    public function add()
+    {
+        $last_update = new DateTime("now");
+        $last_update = $last_update->format('Y-m-d H:i:s');
+        var_dump($last_update);
+        $sql = "INSERT INTO `film` (title, description, release_year, language_id, original_language_id,
+                       rental_duration, rental_rate, length, replacement_cost, rating, special_features, last_update
+                       ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        $bdd = connectDb();
+        $query = $bdd->prepare($sql);
+        $query->execute(array(
+            $this->getTitle(), $this->getDescription(), $this->getReleaseYear(), $this->getLanguageId(),
+            $this->getOriginalLanguageId(), $this->getRentalDuration(), $this->getRentalRate(), $this->getLength(),
+            $this->getReplacementCost(), $this->getRating(), $this->getSpecialFeatures(), $last_update));
+        $query->closeCursor();
+    }
 }
