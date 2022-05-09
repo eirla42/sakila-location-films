@@ -15,38 +15,7 @@ function renderFilms(){
     }
 }
 
-// RENDER actors
-function renderActors(){
-    foreach (getActors() as $actor) {
-        echo
-            '<tr class=`table-row`>
-                <td>' . $actor->getLastName() . '</td>
-                <td>' . $actor->getFirstName() . '</td>
-            </tr>';
-    }
-}
-
-// RENDER actors
-function renderActorsFromFilm($film_name){
-    foreach (getActorsfromFilm($film_name) as $actor) {
-        echo
-            '<tr class=`table-row`>
-                <td>' . $actor->getLastName() . '</td>
-                <td>' . $actor->getFirstName() . '</td>
-            </tr>';
-    }
-}
-
 // READ all films
 function getFilms(){
     return Film::selectAll();
-}
-// READ all actors
-function getActors(){
-    return Actor::selectAll();
-}
-
-// READ all actors who play in a film
-function getActorsfromFilm($film_name){
-    return Actor::selectActorInFilm($film_name);
 }
