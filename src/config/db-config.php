@@ -1,6 +1,6 @@
 <?php
 
-const env = 'DOCKER'; // WAMP or DOCKER
+const env = 'WAMP'; // WAMP or DOCKER
 const DB_NAME = 'sakila';
 const DB_USER = 'root';
 
