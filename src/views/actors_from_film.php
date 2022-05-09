@@ -4,7 +4,7 @@ require __DIR__ . '/../views-models/actors_from_film.php';
 require_once '../db/db-connect.php';
 
 ?>
-<h1>Liste des acteurs</h1>
+<h1>Liste des acteurs par Film</h1>
 
 <table class="table table-bordered table-condensed">
     <thead>
