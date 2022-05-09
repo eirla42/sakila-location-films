@@ -9,9 +9,8 @@ require_once '../db/db-connect.php';
 <table class="table table-bordered table-condensed">
     <thead>
     <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Année</th>
+        <th>Nom</th>
+        <th>Prénom</th>
     </tr>
     </thead>
     <tbody>
