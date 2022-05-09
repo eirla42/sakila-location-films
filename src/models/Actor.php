@@ -91,7 +91,7 @@ class Actor
      */
     public static function selectAll(){
         $actors = array();
-        $sql = "SELECT * FROM actor";
+        $sql = "SELECT * FROM actor ORDER BY last_name, first_name";
 
         $bdd = connectDb();
         $query = $bdd->prepare($sql);
@@ -106,6 +106,37 @@ class Actor
         }
         $query->closeCursor();
 
+        return $actors;
+    }
+
+    /**
+     * Select all actors
+     * @return array
+     */
+    public static function selectActorInFilm($film_name){
+        $actors = array();
+        $sql_film_id = "SELECT film_id FROM film WHERE title = '$film_name'";
+        $bdd = connectDb();
+        $query_film_id = $bdd->prepare($sql_film_id);
+        $query_film_id->execute();
+        $film_id = $query_film_id->fetch();
+        print_r($film_id);
+        $sql = "SELECT * 
+                FROM actor 
+                WHERE actor_id IN 
+                      (SELECT actor_id from film join film_actor using(film_id) where film_id = $film_id[0])";
+        $query = $bdd->prepare($sql);
+        $query->execute();
+        while ($data = $query->fetch()) {
+            $actors[$data['actor_id']] = new Actor(
+                $data['actor_id'],
+                $data['first_name'],
+                $data['last_name'],
+                $data['last_update']
+            );
+        }
+        $query->closeCursor();
+        print_r(sizeof($actors));
         return $actors;
     }
 
