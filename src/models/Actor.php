@@ -120,7 +120,7 @@ class Actor
         $query_film_id = $bdd->prepare($sql_film_id);
         $query_film_id->execute();
         $film_id = $query_film_id->fetch();
-        print_r($film_id);
+        //print_r($film_id);
         $sql = "SELECT * 
                 FROM actor 
                 WHERE actor_id IN 
@@ -136,7 +136,7 @@ class Actor
             );
         }
         $query->closeCursor();
-        print_r(sizeof($actors));
+        //print_r(sizeof($actors));
         return $actors;
     }
 
