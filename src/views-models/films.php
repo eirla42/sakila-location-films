@@ -14,7 +14,7 @@ function renderFilms(){
     // Render
     foreach (getFilms() as $film) {
         echo
-            '<tr class=`table-row`>
+            '<tr class=`table-row` onclick=goToDetails(' . $film->getFilmId() .')>
                 <td>' . $film->getFilmId() . '</td>
                 <td>' . $film->getTitle() . '</td>
                 <td>' . $film->getDescription() . '</td>

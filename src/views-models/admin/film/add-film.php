@@ -21,6 +21,6 @@ function insertFilm() {
         $film->add();
 
         // Go to page index.php
-        header('Location: __DIR__ ./../../../admin/film/list-film.php');
+        header('Location: __DIR__ ./../../../admin/film/list-films.php');
     }
 }

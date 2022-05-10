@@ -3,7 +3,7 @@ Films les plus récents #Claude
 
 # Page films
 * Recherche
-* Pagination #Math
+* ~~Pagination #Math~~
 * Filtre
 
 # Page d'acteurs #Maxime

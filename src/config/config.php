@@ -12,6 +12,7 @@ const APPROOT = "/sakila-location-films/src";
 
 // URL Root
 const URL_ROOT = 'http://localhost/sakila-location-films/src/';
+const FILM_LINK = 'http://localhost/sakila-location-films/src/views/films.php';
 const ACTOR_LINK = 'http://localhost/sakila-location-films/src/views/actors.php';
 const ACTOR_FROM_FILM_LINK = 'http://localhost/sakila-location-films/src/views/actors_from_film.php';
 const FILM_FROM_ACTOR_LINK = 'http://localhost/sakila-location-films/src/views/films_from_actor.php';
