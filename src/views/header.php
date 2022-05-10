@@ -20,8 +20,8 @@
 
     <nav>
         <ul>
-            <li><a href="<?= URL_ROOT; ?>"> Home </a></li>
             <li><a href="<?= URL_ROOT; ?>"> Accueil </a></li>
+            <li><a href="<?= FILM_LINK; ?>"> Film </a></li>
             <li><a href="<?= ACTOR_LINK; ?>"> Actor page </a></li>
             <li><a href="<?= ACTOR_FROM_FILM_LINK; ?>"> Actor from film page </a></li>
             <li><a href="<?= FILM_FROM_ACTOR_LINK; ?>"> Film from actor page </a></li>
