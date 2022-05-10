@@ -5,6 +5,14 @@ require __DIR__.'/../models/Actor.php';
 
 // RENDER films
 function renderFilms(){
+    // Pagination
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $_SESSION['currentPage'] = (int) strip_tags($_GET['page']);
+    } else {
+        $_SESSION['currentPage'] = 1;
+    }
+
+    // Render
     foreach (getFilms() as $film) {
         echo
             '<tr class=`table-row`>

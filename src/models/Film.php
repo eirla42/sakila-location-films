@@ -261,11 +261,22 @@ class Film
      * @return array
      */
     public static function selectAll(){
+        // Pagination
+        $count = self::countAll();
+        $nbPerPage = 20;
+        $_SESSION['pages'] = ceil($count / $nbPerPage);
+        $first = ($_SESSION['currentPage'] * $nbPerPage) - $nbPerPage;
+
+        // Request
         $films = array();
-        $sql = "SELECT * FROM film";
+        $sql = "SELECT * FROM film LIMIT :first, :nbPerPage;";
 
         $bdd = connectDb();
         $query = $bdd->prepare($sql);
+
+        $query->bindValue(':first', $first, PDO::PARAM_INT);
+        $query->bindValue(':nbPerPage', $nbPerPage, PDO::PARAM_INT);
+
         $query->execute();
         while ($data = $query->fetch()) {
             $films[$data['film_id']] = new Film(
@@ -280,6 +291,22 @@ class Film
     }
 
     /**
+     * Count all films
+     * @return int
+     */
+    public static function countAll(){
+        $sql = "SELECT COUNT(*) as 'count' FROM film";
+
+        $bdd = connectDb();
+        $query = $bdd->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        $query->closeCursor();
+
+        return (int) $result['count'];
+    }
+
+    /**
      * Select all actors
      * @return array
      */
@@ -290,7 +317,6 @@ class Film
         $query_actor_id = $bdd->prepare($sql_actor_id);
         $query_actor_id->execute();
         $actor_id = $query_actor_id->fetch();
-        //print_r($actor_id);
         $sql = "SELECT * 
                 FROM film 
                 WHERE film_id IN 
@@ -305,7 +331,6 @@ class Film
             );
         }
         $query->closeCursor();
-        //print_r(sizeof($films));
         return $films;
     }
 
