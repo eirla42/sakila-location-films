@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'/../models/Film.php';
-require __DIR__.'/../models/Actor.php';
+require_once __DIR__.'/../models/Film.php';
+require_once __DIR__.'/../models/Actor.php';
 
 
 

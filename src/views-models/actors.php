@@ -1,13 +1,13 @@
 <?php
-require __DIR__.'/../models/Film.php';
-require __DIR__.'/../models/Actor.php';
+require_once __DIR__.'/../models/Film.php';
+require_once __DIR__.'/../models/Actor.php';
 
 
 // RENDER actors
 function renderActors(){
     foreach (getActors() as $actor) {
         echo
-            '<tr class=`table-row`>
+            '<tr class=`table-row` onclick=goToActorDetails(' . $actor->getActorId() .')>
                 <td>' . $actor->getLastName() . '</td>
                 <td>' . $actor->getFirstName() . '</td>
             </tr>';

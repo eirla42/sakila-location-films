@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'./Film.php';
 
 class Actor
 {
@@ -138,6 +139,54 @@ class Actor
         $query->closeCursor();
         //print_r(sizeof($actors));
         return $actors;
+    }
+
+    /**
+     * Select all actors for a film
+     * @return array
+     */
+    public static function selectActorsByFilmId($film_id){
+        $actors = array();
+        $bdd = connectDb();
+        $sql = "SELECT * 
+                FROM actor 
+                WHERE actor_id IN 
+                      (SELECT actor_id from film join film_actor using(film_id) where film_id = $film_id)";
+        $query = $bdd->prepare($sql);
+        $query->execute();
+        $i=0;
+        while ($data = $query->fetch()) {
+            $actors[$i++] = new Actor(
+                $data['actor_id'],
+                $data['first_name'],
+                $data['last_name'],
+                $data['last_update']
+            );
+        }
+        $query->closeCursor();
+        return $actors;
+    }
+
+    /**
+     * Select an actor
+     * @return Actor
+     */
+    public static function getById($id){
+        // Actor
+        $sql = "SELECT * FROM `actor` WHERE `actor_id` = :id";
+
+        $bdd = connectDb();
+        $query = $bdd->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $query->execute();
+        $actor = $query->fetch();
+        $query->closeCursor();
+
+        // Films of this actor
+        $actor['films'] = Film::selectFilmsByActorId($id);
+
+        return $actor;
     }
 
 }

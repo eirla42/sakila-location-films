@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require __DIR__ . '/../views-models/actors.php';
+require_once __DIR__ . '/../views-models/actors.php';
 require_once '../db/db-connect.php';
 
 ?>
@@ -17,5 +17,11 @@ require_once '../db/db-connect.php';
     <?php renderActors(); ?>
     </tbody>
 </table>
+
+<script type="text/javascript">
+    function goToActorDetails(id) {
+        window.location.assign(`./details/actor_details.php?id=${id}`);
+    }
+</script>
 
 <?php require_once 'footer.php'; ?>
