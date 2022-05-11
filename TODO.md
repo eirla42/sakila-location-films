@@ -9,9 +9,9 @@ Films les plus récents #Claude
 # Page d'acteurs #Maxime
 * Pagination #Maxime
 
-# Fiche du film #Math
+~~# Fiche du film #Math~~
 
-# Fiche acteur #Math
+~~# Fiche acteur #Math~~
 
 
 # Requêtes Film
@@ -28,7 +28,7 @@ Films les plus récents #Claude
 
 # Footer
 
-
+# Rapport
 
 # BONUS
 Connexion
