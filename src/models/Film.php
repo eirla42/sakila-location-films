@@ -1,4 +1,6 @@
 <?php
+require __DIR__.'./Actor.php';
+require __DIR__.'./Category.php';
 
 class Film
 {
@@ -360,6 +362,7 @@ class Film
      * @return Film
      */
     public static function getById($id){
+        // Film
         $sql = "SELECT * FROM `film` WHERE `film_id` = :id";
 
         $bdd = connectDb();
@@ -369,6 +372,12 @@ class Film
         $query->execute();
         $film = $query->fetch();
         $query->closeCursor();
+
+        // Actors of this film
+        $film['actors'] = Actor::selectActorsByFilmId($id);
+
+        // Categories of this film
+        $film['categories'] = Category::selectCategoriesByFilmId($id);
 
         return $film;
     }
