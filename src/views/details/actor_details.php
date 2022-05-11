@@ -17,11 +17,11 @@ getActor();
             <h5><?= $_SESSION['actor']['first_name'] . ' ' . $_SESSION['actor']['last_name'] ?></h5>
         </div>
 
-        <div class="d-flex flex-row mb-3">
-            Films :
-            <?php foreach ($_SESSION['actor']['films'] as $film) {
-                echo $film->getTitle() . '. ';
-            }?>
+        <div class="d-flex flex-wrap mb-3">
+            Liste des films joués par l'acteur/actrice :
+            <?php foreach ($_SESSION['actor']['films'] as $film) {?>
+                <?= ' <a href="./film_details.php?id=' . $film->getFilmId() . '">' . $film->getTitle() . '</a>.' ?>
+            <?php }?>
         </div>
 
     </div>

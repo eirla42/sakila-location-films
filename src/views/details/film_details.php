@@ -28,9 +28,9 @@ getFilm();
 
         <div class="d-flex flex-row mb-3">
             Actors :
-            <?= $_SESSION['film']['actors'][0]->getFirstName() ?> <?= $_SESSION['film']['actors'][0]->getLastName() ?>,
-            <?= $_SESSION['film']['actors'][1]->getFirstName() ?> <?= $_SESSION['film']['actors'][1]->getLastName() ?>,
-            <?= $_SESSION['film']['actors'][2]->getFirstName() ?> <?= $_SESSION['film']['actors'][2]->getLastName() ?>
+            <?= '<a href="./actor_details.php?id=' . $_SESSION['film']['actors'][0]->getActorId() . '">' . $_SESSION['film']['actors'][0]->getFirstName() ?> <?= $_SESSION['film']['actors'][0]->getLastName() . '</a>' ?>,
+            <?= '<a href="./actor_details.php?id=' . $_SESSION['film']['actors'][1]->getActorId() . '">' . $_SESSION['film']['actors'][1]->getFirstName() ?> <?= $_SESSION['film']['actors'][1]->getLastName() . '</a>' ?>,
+            <?= '<a href="./actor_details.php?id=' . $_SESSION['film']['actors'][2]->getActorId() . '">' . $_SESSION['film']['actors'][2]->getFirstName() ?> <?= $_SESSION['film']['actors'][2]->getLastName() . '</a>' ?>
         </div>
 
         <div class="d-flex flex-row mb-3">
@@ -47,7 +47,7 @@ getFilm();
         <div class="d-flex flex-row mb-3">
             Temps de location : <?= $_SESSION['film']['rental_duration'] ?> jours,
             Prix : <?= $_SESSION['film']['rental_rate'] ?>€,
-            Caution : <?= $_SESSION['film']['replacement_cost'] ?>€,
+            Caution : <?= $_SESSION['film']['replacement_cost'] ?>€
         </div>
 
     </div>
