@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require __DIR__ . '/../views-models/films_from_actor.php';
+require_once __DIR__ . '/../views-models/films_from_actor.php';
 require_once '../db/db-connect.php';
 
 ?>

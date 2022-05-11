@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require __DIR__ . '/../views-models/films.php';
+require_once __DIR__ . '/../views-models/films.php';
 require_once '../db/db-connect.php';
 
 ?>
@@ -47,7 +47,7 @@ require_once '../db/db-connect.php';
 
 
 <script type="text/javascript">
-    function goToDetails(id) {
+    function goToFilmDetails(id) {
         window.location.assign(`./details/film_details.php?id=${id}`);
     }
 </script>

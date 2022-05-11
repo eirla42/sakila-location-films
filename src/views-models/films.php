@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/../models/Film.php';
+require_once __DIR__.'/../models/Film.php';
 
 
 // RENDER films
@@ -14,10 +14,10 @@ function renderFilms(){
     // Render
     foreach (getFilms() as $film) {
         echo
-            '<tr class=`table-row` onclick=goToDetails(' . $film->getFilmId() .')>
-                <td>' . $film->getFilmId() . '</td>
+            '<tr class=`table-row` onclick=goToFilmDetails(' . $film->getFilmId() .')>
                 <td>' . $film->getTitle() . '</td>
                 <td>' . $film->getDescription() . '</td>
+                <td>' . $film->getReleaseYear() . '</td>
             </tr>';
     }
 }

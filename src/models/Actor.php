@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'./Film.php';
 
 class Actor
 {
@@ -164,6 +165,28 @@ class Actor
         }
         $query->closeCursor();
         return $actors;
+    }
+
+    /**
+     * Select an actor
+     * @return Actor
+     */
+    public static function getById($id){
+        // Actor
+        $sql = "SELECT * FROM `actor` WHERE `actor_id` = :id";
+
+        $bdd = connectDb();
+        $query = $bdd->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $query->execute();
+        $actor = $query->fetch();
+        $query->closeCursor();
+
+        // Films of this actor
+        $actor['films'] = Film::selectFilmsByActorId($id);
+
+        return $actor;
     }
 
 }

@@ -22,7 +22,7 @@
         <ul>
             <li><a href="<?= URL_ROOT; ?>"> Accueil </a></li>
             <li><a href="<?= FILM_LINK; ?>"> Films </a></li>
-            <li><a href="<?= ACTOR_LINK; ?>"> Actor page </a></li>
+            <li><a href="<?= ACTOR_LINK; ?>"> Acteurs </a></li>
             <li><a href="<?= ACTOR_FROM_FILM_LINK; ?>"> Actor from film page </a></li>
             <li><a href="<?= FILM_FROM_ACTOR_LINK; ?>"> Film from actor page </a></li>
             <li><a href="<?= URL_ROOT; ?>views/admin/film/list-film.php"> Admin - Liste des films </a></li>

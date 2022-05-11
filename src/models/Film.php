@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'./Actor.php';
-require __DIR__.'./Category.php';
+require_once __DIR__.'./Actor.php';
+require_once __DIR__.'./Category.php';
 
 class Film
 {
@@ -336,6 +336,30 @@ class Film
         return $films;
     }
 
+    /**
+     * Select all actors
+     * @return array
+     */
+    public static function selectFilmsByActorId($actor_id){
+        $films = array();
+        $bdd = connectDb();
+        $sql = "SELECT * 
+                FROM film 
+                WHERE film_id IN 
+                      (SELECT film_id from film join film_actor using(film_id) where actor_id = $actor_id)";
+        $query = $bdd->prepare($sql);
+        $query->execute();
+        $i=0;
+        while ($data = $query->fetch()) {
+            $films[$i++] = new Film(
+                $data['film_id'], $data['title'], $data['description'], $data['release_year'], $data['language_id'],
+                $data['original_language_id'], $data['rental_duration'], $data['rental_rate'], $data['length'],
+                $data['replacement_cost'], $data['rating'], $data['special_features'], $data['last_update']
+            );
+        }
+        $query->closeCursor();
+        return $films;
+    }
 
     /**
      * INSERT a film

@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/../models/Film.php';
+require_once __DIR__.'/../models/Film.php';
 
 
 // RENDER films

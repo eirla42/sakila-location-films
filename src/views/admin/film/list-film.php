@@ -1,7 +1,7 @@
 <?php
 require_once '../../header.php';
-require __DIR__ .'/../../../db/db-connect.php';
-require __DIR__ . '/../../../views-models/home.php';
+require_once __DIR__ .'/../../../db/db-connect.php';
+require_once __DIR__ . '/../../../views-models/home.php';
 
 ?>
     <h1>Liste des films</h1>

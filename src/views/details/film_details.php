@@ -1,13 +1,13 @@
 <?php
 require_once '../header.php';
-require __DIR__ . '/../../views-models/details/film_details.php';
+require_once __DIR__ . '/../../views-models/details/film_details.php';
 require_once '../../db/db-connect.php';
 
 getFilm();
 ?>
 <h2 class="mb-5">Location de film</h2>
 
-<div class="border rounded">
+<div class="border rounded flex-nowrap">
     <div class="left">
         <img src="../../assets/images/image-unavailable.jpg" alt="Image Unavailable">
     </div>
@@ -34,7 +34,10 @@ getFilm();
         </div>
 
         <div class="d-flex flex-row mb-3">
-            Genre : <?= $_SESSION['film']['categories'][0]->getName() ?>
+            Genre :
+            <?php foreach ($_SESSION['film']['categories'] as $category) {
+                echo $category->getName() . '. ';
+            }?>
         </div>
 
         <div class="d-flex flex-row mb-3">
