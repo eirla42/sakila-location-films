@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'./Film.php';
+require_once __DIR__.'/Film.php';
 
 class Actor
 {
