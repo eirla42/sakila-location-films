@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__.'./Actor.php';
-require_once __DIR__.'./Category.php';
+require_once __DIR__.'/Actor.php';
+require_once __DIR__.'/Category.php';
 
 class Film
 {
