@@ -405,4 +405,53 @@ class Film
 
         return $film;
     }
+
+    /**
+     * Select last films
+     * @return array
+     */
+    public static function selectLastFilm($numberOfFilm){
+        $films = array();
+        $bdd = connectDb();
+        $sql_last_film_id = "SELECT * FROM `film` ORDER BY `film`.`release_year` DESC LIMIT $numberOfFilm";
+        $query_last_film_id = $bdd->prepare($sql_last_film_id);
+        $query_last_film_id->execute();
+        while ($data = $query_last_film_id->fetch()) {
+            $films[$data['film_id']] = new Film(
+                $data['film_id'], $data['title'], $data['description'], $data['release_year'], $data['language_id'],
+                $data['original_language_id'], $data['rental_duration'], $data['rental_rate'], $data['length'],
+                $data['replacement_cost'], $data['rating'], $data['special_features'], $data['last_update']
+            );
+        }
+        $query_last_film_id->closeCursor();
+        return $films;
+    }
+
+    /**
+     * Select recherche
+     * @return array
+     */
+    public static function selectRecherche($term){
+        $films = array();
+        $bdd = connectDb();
+        $sql_recherche_id = "SELECT * FROM `film` 
+         JOIN `film_actor` USING(film_id) 
+         JOIN `actor` USING(actor_id)
+         WHERE `film`.`description` LIKE '%$term%' 
+            OR `film`.`title` LIKE '%$term%' 
+            OR `film`.`special_features` LIKE '%$term%'
+            OR `actor`.`first_name` LIKE '%$term%'
+            OR `actor`.`last_name` LIKE '%$term%'";
+        $query_recherche_id = $bdd->prepare($sql_recherche_id);
+        $query_recherche_id->execute();
+        while ($data = $query_recherche_id->fetch()) {
+            $films[$data['film_id']] = new Film(
+                $data['film_id'], $data['title'], $data['description'], $data['release_year'], $data['language_id'],
+                $data['original_language_id'], $data['rental_duration'], $data['rental_rate'], $data['length'],
+                $data['replacement_cost'], $data['rating'], $data['special_features'], $data['last_update']
+            );
+        }
+        $query_recherche_id->closeCursor();
+        return $films;
+    }
 }

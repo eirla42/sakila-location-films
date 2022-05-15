@@ -30,3 +30,7 @@
     </nav>
 
     <div class='text-center container'>
+        <form action = "/sakila-location-films/src/views/recherche.php" method = "get" class="header-main-search">
+            <input type = "search" name = "s" placeholder="Rechercher un film, une série, une star...">
+            <input type = "submit" name = "Rechercher" >
+        </form>
